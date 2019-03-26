@@ -27,6 +27,38 @@ public class SiteUser {
   @NotNull
   @Column
   private String salt;
+
+public int getSiteUserId() {
+	return siteUserId;
+}
+
+public void setSiteUserId(int siteUserId) {
+	this.siteUserId = siteUserId;
+}
+
+public String getUsername() {
+	return username;
+}
+
+public void setUsername(String username) {
+	this.username = username;
+}
+
+public String getPasswordHash() {
+	return passwordHash;
+}
+
+public void setPasswordHash(String passwordHash) {
+	this.passwordHash = passwordHash;
+}
+
+public String getSalt() {
+	return salt;
+}
+
+public void setSalt(String salt) {
+	this.salt = salt;
+}
   
   
 }
