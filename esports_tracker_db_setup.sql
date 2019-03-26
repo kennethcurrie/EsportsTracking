@@ -26,7 +26,7 @@ create table game(
 create table player(
 	player_id			serial 	primary key,
 	player_handle		text 	not null,
-	team_id				integer	references team(team_id)	
+	team_id				integer	not NULL references team(team_id)	
 );
 create table match_history(
 	match_id			serial 	primary key,
