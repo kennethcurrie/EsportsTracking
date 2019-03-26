@@ -5,7 +5,7 @@ import javax.persistence.Column;
 @Entity
 public class SiteUser {
 
-  @Id (name="site_user_id);
+  @Id (name="site_user_id")
   private int siteUserId;
   
   @Column
