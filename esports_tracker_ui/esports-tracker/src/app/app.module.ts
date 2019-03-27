@@ -16,7 +16,7 @@ import { TestViewComponent } from './test-view/test-view.component';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent, TestViewComponent],
+  bootstrap: [AppComponent],
   exports: []
 })
 export class AppModule { }
