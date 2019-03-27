@@ -29,6 +29,10 @@ public class Player {
 	@Column(name = "team_id")
 	private String teamId;
 
+	public Player() {
+		super();
+	}
+
 	public Player( String playerHandle, String teamId) {
 		super();
 		this.playerHandle = playerHandle;
