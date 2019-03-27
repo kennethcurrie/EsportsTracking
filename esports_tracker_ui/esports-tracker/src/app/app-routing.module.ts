@@ -4,8 +4,9 @@ import { SomeComponentComponent } from './some-component/some-component.componen
 import { TestViewComponent } from './test-view/test-view.component';
 
 const routes: Routes = [
-  { path: 'test', component: TestViewComponent },
   { path: 'some', component: SomeComponentComponent },
+  { path: 'test', component: TestViewComponent },
+  
   // { path: '**', component: PageNotFoundComponent }
 ];
 
