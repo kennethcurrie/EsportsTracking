@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.dto.LogNameData;
 import com.revature.models.MatchHistory;
-import com.revature.services.IMatchHistoryService;
 import com.revature.services.MatchHistoryService;
+import com.revature.services.MatchHistoryServiceImpl;
 
 @RestController
 @RequestMapping(path="matchhistory")
 public class MatchHistoryController {
 	
 	@Autowired
-	IMatchHistoryService matchHistoryService;
+	MatchHistoryService matchHistoryService;
 
 	@GetMapping("")
 	public ResponseEntity<MatchHistory[]> findAll( ) {
@@ -30,12 +30,5 @@ public class MatchHistoryController {
 		arr = result.toArray(arr);
 		return new ResponseEntity<MatchHistory[]>(arr, HttpStatus.OK);
 	}
-
-	@PostMapping("test/post")
-	public String postTest( @RequestBody LogNameData lData ) {
-		return "hello world!"; 
-	}
 	
 }
-
-

@@ -13,19 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.dto.LogNameData;
 import com.revature.models.SiteUser;
-import com.revature.services.ISiteUserService;
 import com.revature.services.SiteUserService;
+import com.revature.services.SiteUserServiceImpl;
 
 @RestController
 @RequestMapping(path="siteuser")
 public class SiteUserController {
 	
 	@Autowired
-	ISiteUserService SiteUserService;
+	SiteUserService siteUserService;
 
 	@GetMapping("")
 	public ResponseEntity<SiteUser[]> findAll( ) {
-		List<SiteUser> result = SiteUserService.findAll();
+		List<SiteUser> result = siteUserService.findAll();
 		SiteUser[] arr = new SiteUser[result.size()];
 		arr = result.toArray(arr);
 		return new ResponseEntity<SiteUser[]>(arr, HttpStatus.OK);
