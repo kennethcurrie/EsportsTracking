@@ -1,24 +1,28 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { fetchClient } from 'src/axios/sms-clients/fetch-client';
 
 @Component({
   selector: 'app-test-view',
   templateUrl: './test-view.component.html',
-  styleUrls: ['./test-view.component.css']
+  styleUrls: ['./test-view.component.scss']
 })
 @NgModule({
   imports: [NgbModule]
 })
 export class TestViewComponent implements OnInit {
 
-  testVar = [345, 2345, 2345, 3453245, 345, 2345, 2, 345, 23, 45, 23452345, 2345, 2345, 2345, 34523, 23452345, 245, 3];
+  testVar = [];
 
   constructor() {
-
   }
 
   ngOnInit() {
-    console.log('hello world');
+    const func = async () => {
+      this.testVar = (await fetchClient.testfetch()).data;
+      console.log(this.testVar);
+    };
+    func();
   }
 
 }

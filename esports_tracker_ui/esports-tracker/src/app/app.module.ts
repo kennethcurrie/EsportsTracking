@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestViewComponent } from './test-view/test-view.component';
 import { SomeComponentComponent } from './some-component/some-component.component';
+import { PageWrapperComponent } from './page-wrapper/page-wrapper.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
@@ -15,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     TestViewComponent,
     SomeComponentComponent,
+    PageWrapperComponent,
     HomeComponent,
     NavComponent,
     FooterComponent
@@ -25,6 +27,6 @@ import { FooterComponent } from './footer/footer.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [NavComponent, FooterComponent]
+  exports: [PageWrapperComponent, HomeComponent, NavComponent, FooterComponent]
 })
 export class AppModule { }

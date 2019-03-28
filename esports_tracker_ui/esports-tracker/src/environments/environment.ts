@@ -22,7 +22,7 @@ const dev = {
   awsRegion:          'us-east-1',
   cognitoClientId:    '4mafdnad6u1o1ugokulsmbrl96',
   cognitoUserPoolId:  'us-east-1_6hCFlGZHZ',
-  smsContext:         'http://10.226.82.63:8092/',
+  smsContext:         'http://localhost:8092/',
   production: false
 };
 

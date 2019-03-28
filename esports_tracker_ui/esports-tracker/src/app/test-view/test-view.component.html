@@ -11,11 +11,15 @@
   </thead>
   <tbody>
     <tr *ngFor="let number of testVar; index as i">
-      <th scope="row">{{i}}</th>
-      <td>{{number}}</td>
-      <td>{{number}}</td>
-      <td>{{number}}</td>
-      <td>{{number}}</td>
+      <th scope="row">{{i + 1}}</th>
+      <td>{{ testVar[i].game.gameName }}</td>
+      <td>
+          <span style="color:aquamarine;">{{ testVar[i].teamWinner.teamName }}</span>
+          <span> was victorious against </span>
+          <span style="color:pink;">{{ (testVar[i].teamWinner === testVar[i].teamA)? testVar[i].teamB.teamName : testVar[i].teamA.teamName }}</span>
+      </td>
+      <td>{{ testVar[i].matchDetails }}</td>
+      <td>{{ testVar[i].matchDate }}</td>
     </tr>
   </tbody>
 </table>
