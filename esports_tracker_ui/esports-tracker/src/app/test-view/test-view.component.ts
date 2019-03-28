@@ -5,7 +5,7 @@ import { fetchClient } from 'src/axios/sms-clients/fetch-client';
 @Component({
   selector: 'app-test-view',
   templateUrl: './test-view.component.html',
-  styleUrls: ['./test-view.component.css']
+  styleUrls: ['./test-view.component.scss']
 })
 @NgModule({
   imports: [NgbModule]
