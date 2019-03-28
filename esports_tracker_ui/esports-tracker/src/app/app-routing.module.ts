@@ -6,7 +6,6 @@ import { TestViewComponent } from './test-view/test-view.component';
 const routes: Routes = [
   { path: 'some', component: SomeComponentComponent },
   { path: 'test', component: TestViewComponent },
-  
   // { path: '**', component: PageNotFoundComponent }
 ];
 
