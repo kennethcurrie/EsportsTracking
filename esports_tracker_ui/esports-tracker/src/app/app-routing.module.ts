@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   { path: 'some', component: SomeComponentComponent },
   { path: 'test', component: TestViewComponent },
-  { path: '', component: HomeComponent },
+  { path: 'd', component: HomeComponent },
   // { path: '**', component: PageNotFoundComponent }
 ];
 
