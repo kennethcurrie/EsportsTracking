@@ -5,13 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestViewComponent } from './test-view/test-view.component';
 import { SomeComponentComponent } from './some-component/some-component.component';
+import { HomeComponent } from './home/home.component';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TestViewComponent,
-    SomeComponentComponent
+    SomeComponentComponent,
+    HomeComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +23,6 @@ import { SomeComponentComponent } from './some-component/some-component.componen
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: []
+  exports: [NavComponent]
 })
 export class AppModule { }
