@@ -22,15 +22,20 @@ public class MatchHistoryController {
 	
 	@Autowired
 	IMatchHistoryService matchHistoryService;
-	
-	@GetMapping("/")
-	public ResponseEntity<List<MatchHistory>> findAll( ) {
+
+	@GetMapping("")
+	public ResponseEntity<MatchHistory[]> findAll( ) {
 		List<MatchHistory> result = matchHistoryService.findAll();
-		return new ResponseEntity<List<MatchHistory>>(result, HttpStatus.OK) ;
+		MatchHistory[] arr = new MatchHistory[result.size()];
+		arr = result.toArray(arr);
+		return new ResponseEntity<MatchHistory[]>(arr, HttpStatus.OK);
 	}
-	
+
 	@PostMapping("test/post")
 	public String postTest( @RequestBody LogNameData lData ) {
-		return "hello world!";
+		return "hello world!"; 
 	}
+	
 }
+
+

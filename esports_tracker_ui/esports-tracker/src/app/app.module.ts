@@ -18,7 +18,7 @@ import { SomeComponentComponent } from './some-component/some-component.componen
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent, TestViewComponent, SomeComponentComponent],
+  bootstrap: [AppComponent],
   exports: []
 })
 export class AppModule { }
