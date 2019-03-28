@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PageWrapperComponent } from './page-wrapper/page-wrapper.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { NavComponent } from './nav/nav.component';
     NavbarComponent,
     PageWrapperComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,6 @@ import { NavComponent } from './nav/nav.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [PageWrapperComponent, HomeComponent, NavComponent]
+  exports: [PageWrapperComponent, HomeComponent, NavComponent, FooterComponent]
 })
 export class AppModule { }
