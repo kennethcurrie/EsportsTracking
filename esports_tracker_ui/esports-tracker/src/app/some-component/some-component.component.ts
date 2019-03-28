@@ -16,6 +16,8 @@ export class SomeComponentComponent implements OnInit {
       console.log('subscribed: ', store.getState());
     });
 
+    // this code adds to 0 twice in our redux store
+    // if it works it should alert 2
     store.dispatch({ type: 'INCREMENT' }); // -> subscribed: 1
     store.dispatch({ type: 'INCREMENT' }); // -> subscribed: 2
 
