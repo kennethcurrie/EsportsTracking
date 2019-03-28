@@ -8,7 +8,7 @@ import { reducer } from '../reducers/testReducer';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'esports-tracker';
+  title = 'Esports-Tracker';
 }
 
 // pass our testReducer into our store

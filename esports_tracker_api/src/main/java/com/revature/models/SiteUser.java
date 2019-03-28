@@ -1,4 +1,7 @@
 package com.revature.models;
+
+import com.revature.util.MD5;
+
 import javax.persistence.Column;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -24,52 +27,9 @@ public class SiteUser {
   @Column(name="password_hash")
   private String passwordHash;
   
-  @NotNull
-  @Column
-  private String salt;
-
-public SiteUser() {
-	super();
-}
-
-public SiteUser(int siteUserId, @NotNull String username, @NotNull String passwordHash, @NotNull String salt) {
-	super();
-	this.siteUserId = siteUserId;
-	this.username = username;
-	this.passwordHash = passwordHash;
-	this.salt = salt;
-}
-
-public int getSiteUserId() {
-	return siteUserId;
-}
-
-public void setSiteUserId(int siteUserId) {
-	this.siteUserId = siteUserId;
-}
-
-public String getUsername() {
-	return username;
-}
-
-public void setUsername(String username) {
-	this.username = username;
-}
-
-public String getPasswordHash() {
-	return passwordHash;
-}
-
-public void setPasswordHash(String passwordHash) {
-	this.passwordHash = passwordHash;
-}
-
-public String getSalt() {
-	return salt;
-}
-
-public void setSalt(String salt) {
-	this.salt = salt;
+  @Override
+public String toString() {
+	return "SiteUser [siteUserId=" + siteUserId + ", username=" + username + "]";
 }
 
 @Override
@@ -112,12 +72,38 @@ public boolean equals(Object obj) {
 	return true;
 }
 
-@Override
-public String toString() {
-	return "SiteUser [siteUserId=" + siteUserId + ", username=" + username + ", passwordHash=" + passwordHash
-			+ ", salt=" + salt + "]";
-}
-  
-  
-  
+@NotNull
+  @Column
+  private String salt;
+
+	public SiteUser() {
+		super();
+	}
+	
+	public SiteUser(String username, String password) {
+		this.siteUserId = 0;
+		this.username = username;
+		this.salt = MD5.getMD5(username);
+		this.passwordHash = MD5.getMD5(password+salt);
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.passwordHash = MD5.getMD5(password+salt);
+	}
+	
+	public boolean checkCredentials(String username, String password) {
+		return (this.username==username&&this.passwordHash==MD5.getMD5(password+salt));
+	}
+
+	public int getSiteUserId() {
+		return siteUserId;
+	}
 }
