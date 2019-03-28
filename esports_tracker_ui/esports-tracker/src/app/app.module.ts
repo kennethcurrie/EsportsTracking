@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { TestViewComponent } from './test-view/test-view.component';
 import { SomeComponentComponent } from './some-component/some-component.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PageWrapperComponent } from './page-wrapper/page-wrapper.component';
+import { HomeComponent } from './home/home.component';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
@@ -13,7 +16,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppComponent,
     TestViewComponent,
     SomeComponentComponent,
-    NavbarComponent
+    NavbarComponent,
+    PageWrapperComponent,
+    HomeComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +27,6 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: []
+  exports: [PageWrapperComponent, HomeComponent, NavComponent]
 })
 export class AppModule { }
