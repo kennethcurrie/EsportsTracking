@@ -1,26 +1,41 @@
-import {TestAction} from '../actions/TestAction';
+import {TestReducer} from './testReducer';
+import {TestAction} from '../actions/testAction';
 
-// 3-28-19
-// our reducer right now is a function that takes in
-// an action
-// and a state of type T
-// it returns an object of type T
-// T is just a generic type parameter,
-// you can use L, K, whatever apart from T
-type testReducer<T> = (state: T, action: TestAction) => T;
+interface ListenerCallback {
+  // tslint:disable-next-line:callable-types
+  (): void;
+}
 
-// create an instance of our reducer
-const testReducer: testReducer<number> = (state: number, action: TestAction) => {
-  if (action.type === 'INCREMENT') {
-    return state + 1;
+interface UnsubscribeCallback {
+  // tslint:disable-next-line:callable-types
+  (): void;
+}
+
+export class Store<T> {
+  // tslint:disable-next-line:variable-name
+  private _state: T;
+  // tslint:disable-next-line:variable-name
+  private _listeners: ListenerCallback[] = [];
+
+  constructor(
+    private reducer: TestReducer<T>,
+    initialState: T
+  ) {
+    this._state = initialState;
   }
-  if (action.type === 'DECREMENT') {
-    return state - 1;
-  }
-  return state;
-};
 
-// export our reducer
-export interface TestReducer {
-  testReducer: testReducer<number>;
+  getState(): T {
+    return this._state;
+  }
+
+  dispatch(action: TestAction): void {
+    this._state = this.reducer(this._state, action);
+  }
+
+  subscribe(listener: ListenerCallback): UnsubscribeCallback {
+    this._listeners.push(listener);
+    return () => { // returns an "unsubscribe" function
+      this._listeners = this._listeners.filter(l => l !== listener);
+    };
+  }
 }

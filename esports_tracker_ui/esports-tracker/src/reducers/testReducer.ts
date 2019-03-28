@@ -7,11 +7,13 @@ import {TestAction} from '../actions/TestAction';
 // it returns an object of type T
 // T is just a generic type parameter,
 // you can use L, K, whatever apart from T
-type testReducer<T> = (state: T, action: TestAction) => T;
 
-// create an instance of our reducer
-// watch the const
-const testReducer: testReducer<number> = (state: number, action: TestAction) => {
+export interface TestReducer<T> {
+  // tslint:disable-next-line:callable-types
+  (state: T, action: TestAction): T;
+}
+
+export const reducer: TestReducer<number> = (state: number, action: TestAction) => {
   switch (action.type) {
     case 'INCREMENT':
       return state + 1;
@@ -24,7 +26,3 @@ const testReducer: testReducer<number> = (state: number, action: TestAction) => 
     }
 };
 
-// export our reducer
-export interface TestReducer {
-  testReducer: testReducer<number>;
-}
