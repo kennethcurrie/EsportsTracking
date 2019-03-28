@@ -5,13 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestViewComponent } from './test-view/test-view.component';
 import { SomeComponentComponent } from './some-component/some-component.component';
+import { PageWrapperComponent } from './page-wrapper/page-wrapper.component';
+import { HomeComponent } from './home/home.component';
+import { NavComponent } from './nav/nav.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TestViewComponent,
-    SomeComponentComponent
+    SomeComponentComponent,
+    PageWrapperComponent,
+    HomeComponent,
+    NavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +27,6 @@ import { SomeComponentComponent } from './some-component/some-component.componen
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: []
+  exports: [PageWrapperComponent, HomeComponent, NavComponent, FooterComponent]
 })
 export class AppModule { }
