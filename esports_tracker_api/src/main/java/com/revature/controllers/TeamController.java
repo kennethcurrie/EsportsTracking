@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.dto.LogNameData;
 import com.revature.models.Team;
-import com.revature.services.ITeamService;
 import com.revature.services.TeamService;
+import com.revature.services.TeamServiceImpl;
 
 @RestController
 @RequestMapping(path="team")
 public class TeamController {
 	
 	@Autowired
-	ITeamService teamService;
+	TeamService teamService;
 
 	@GetMapping("")
 	public ResponseEntity<Team[]> findAll( ) {
@@ -32,5 +32,3 @@ public class TeamController {
 	}
 	
 }
-
-

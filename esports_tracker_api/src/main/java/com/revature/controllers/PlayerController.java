@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.dto.LogNameData;
 import com.revature.models.Player;
-import com.revature.services.IPlayerService;
 import com.revature.services.PlayerService;
+import com.revature.services.PlayerServiceImpl;
 
 @RestController
 @RequestMapping(path="player")
 public class PlayerController {
 	
 	@Autowired
-	IPlayerService playerService;
+	PlayerService playerService;
 
 	@GetMapping("")
 	public ResponseEntity<Player[]> findAll( ) {

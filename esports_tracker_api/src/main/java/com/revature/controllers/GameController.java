@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.dto.LogNameData;
 import com.revature.models.Game;
-import com.revature.services.IGameService;
 import com.revature.services.GameService;
+import com.revature.services.GameServiceImpl;
 
 @RestController
 @RequestMapping(path="game")
 public class GameController {
 	
 	@Autowired
-	IGameService gameService;
+	GameService gameService;
 
 	@GetMapping("")
 	public ResponseEntity<Game[]> findAll( ) {
@@ -32,5 +32,3 @@ public class GameController {
 	}
 	
 }
-
-
